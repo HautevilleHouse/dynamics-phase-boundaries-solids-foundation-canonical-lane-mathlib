@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DynamicsPhaseBoundariesSolidsFoundationCanonicalLaneLean.PhaseFieldDynamics
+import DynamicsPhaseBoundariesSolidsFoundationCanonicalLaneLean.SolidificationFront
+import DynamicsPhaseBoundariesSolidsFoundationCanonicalLaneLean.NucleationBarrier
+
+namespace HautevilleHouse
+namespace DynamicsPhaseBoundariesSolidsFoundationCanonicalLaneLean
+
+def ConstrainedDynamicsPhaseBoundariesClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_dynamics_phase_boundaries_endgame (A : AdmissibleClass) :
+    ConstrainedDynamicsPhaseBoundariesClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DynamicsPhaseBoundariesSolidsFoundationCanonicalLaneLean
+end HautevilleHouse
